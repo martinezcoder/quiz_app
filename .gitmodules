@@ -1,0 +1,6 @@
+[submodule "backend"]
+	path = backend
+	url = ./backend
+[submodule "client"]
+	path = client
+	url = ./client
