@@ -7,7 +7,7 @@ services:
       context: ./
       dockerfile: frontend.dockerfile
     volumes:
-      - ./client:/app
+      - ./quiz_app_frontend:/app
     ports:
       - "8080:8080"
   backend:

@@ -1,6 +1,7 @@
 [submodule "backend"]
 	path = backend
 	url = ./backend
-[submodule "client"]
-	path = client
+
+[submodule "quiz_app_frontend"]
+	path = quiz_app_frontend
 	url = git@github.com:martinezcoder/quiz_app_frontend.git
