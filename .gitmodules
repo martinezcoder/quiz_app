@@ -3,4 +3,4 @@
 	url = ./backend
 [submodule "client"]
 	path = client
-	url = ./client
+	url = git@github.com:martinezcoder/quiz_app_frontend.git
