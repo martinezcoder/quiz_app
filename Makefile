@@ -11,22 +11,34 @@ sync-repo:  ## Sync repository and submodules
 	git submodule sync
 	git submodule update --init
 
-down:
+down: ## Docker compose down
 	docker-compose down
 
-up:
+up: ## Docker compoose up
 	docker-compose up
 
 #### BUILD
 
-build:
+build: ## Prepares the frontend and backend servers to be run
 build: sync-repo down build-frontend build-backend
 
-build-frontend:
+build-frontend: ## Builds the docker image for the frontend server
 build-frontend: clean-frontend build-frontend-image
 
-build-backend:
+build-backend: ## Builds the docker image for the backend server
 build-backend: clean-backend build-backend-image
+
+#### RUN IMAGE
+
+frontend-run: ## Runs frontend image
+frontend-run:
+	docker run -p 8080:8080 -t quiz_app/frontend
+
+backend-run: ## Runs backend image
+backend-run:
+	docker run -p 4567:4567 -t quiz_app/backend
+
+#### BUILD IMAGES
 
 build-frontend-image:
 	docker build -f frontend.dockerfile -t quiz_app/frontend ./
@@ -49,11 +61,3 @@ frontend-bash:
 
 backend-bash:
 	docker run -t quiz_app/backend bash
-
-#### RUN IMAGE
-
-frontend-run:
-	docker run -p 8080:8080 -t quiz_app/frontend
-
-backend-run:
-	docker run -p 4567:4567 -t quiz_app/backend
