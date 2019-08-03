@@ -9,6 +9,8 @@ ADD ./quiz_app_frontend ./
 
 EXPOSE 8080
 
+CMD npm run serve
+
 # Installation of the project
 # vue create .
 # npm install bootstrap-vue bootstrap
