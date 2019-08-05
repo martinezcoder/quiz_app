@@ -23,7 +23,7 @@ build: ## Prepares the frontend and backend servers to be run
 build: sync-repo down build-frontend build-backend
 
 build-frontend: ## Builds the docker image for the frontend server
-build-frontend: clean-frontend build-frontend-image
+build-frontend: clean-frontend build-frontend-image install-frontend
 
 build-backend: ## Builds the docker image for the backend server
 build-backend: clean-backend build-backend-image
@@ -53,6 +53,12 @@ clean-frontend:
 
 clean-backend:
 	docker rmi -f `docker images | grep quiz_app | grep backend | awk '{print $3}'` || true
+
+#### INSTALL
+
+install-frontend: ## install node_modules dependencies
+install-frontend:
+	docker-compose run frontend npm install
 
 #### OPEN BASH
 
